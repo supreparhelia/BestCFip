@@ -61,7 +61,7 @@ for url, shortname in sources.items():
             try:
                 if ipaddress.ip_address(ip).version == 4:
                     ip_with_port = f"{ip}:{PORT}"
-                    comment = f"{shortname}-{myID.uuid4().hex[27:] } + {str(random.randint(0,10))}"
+                    comment = f"{shortname}-{myID.uuid4().hex[27:]}{str(random.randint(0,10))}"
                     ipv4_dict[ip_with_port] = comment
             except ValueError:
                 continue
@@ -72,7 +72,7 @@ for url, shortname in sources.items():
                 ip_obj = ipaddress.ip_address(ip)
                 if ip_obj.version == 6:
                     ip_with_port = f"[{ip_obj.compressed}]:{PORT}"
-                    comment = f"IPv6{shortname}-{myID.uuid4().hex[27:] } + {str(random.randint(0,10))}"
+                    comment = f"IPv6-{shortname}-{myID.uuid4().hex[27:]}{str(random.randint(0,10))}"
                     ipv6_dict[ip_with_port] = comment
             except ValueError:
                 continue
